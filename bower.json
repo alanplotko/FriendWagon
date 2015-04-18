@@ -1,0 +1,21 @@
+{
+  "name": "RoadTrip",
+  "version": "0.0.1",
+  "homepage": "https://github.com/alanplotko/RoadTrip",
+  "authors": [
+    "Alan Plotko <alan.plotko@gmail.com",
+    "William Jagels <will.jagels@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
