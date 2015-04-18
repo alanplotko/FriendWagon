@@ -1,5 +1,13 @@
 extends layout
 
+block header
+	link(rel='stylesheet', href='/css/splash.css')
+	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Kalam:300|Open+Sans:300', type='text/css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+	.container.valign.center-align
+		.row
+			.col.s12
+				h1.logo= title
+				h2 Find Your Adventure
+				a#create.waves-effect.waves-light.btn-large(href='/roadtrip') Create a Road Trip

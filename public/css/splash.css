@@ -16,7 +16,7 @@ body::after {
 	z-index: -1;
     background: url('../img/bg.jpg');
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 h1.logo {
@@ -29,20 +29,12 @@ h1.logo {
 }
 
 h2 {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	font-size: 28px;
-	color: #FAFAFA;
-	margin: 0 0 0 -10px;
-	line-height: 64px;
-	font-variant: small-caps;
-}
-
-i.down-arrow {
+	font-family: 'Open Sans', sans-serif;
 	font-size: 64px;
 	color: #FAFAFA;
 }
 
-i.down-arrow:hover {
-	color: #BDBDBD;
+a#create {
+	font-size: 18px;
+	margin-top: 20px;
 }

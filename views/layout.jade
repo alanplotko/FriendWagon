@@ -6,9 +6,14 @@ html
     link(rel='stylesheet', href='/materialize/bin/materialize.css')
     script(src='jquery/dist/jquery.min.js')
     script(src='materialize/bin/materialize.js')
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
     block header
-  body.valign-wrapper(style="height: 100%;")
+  body.valign-wrapper(style='height: 100%;')
     block content
+
+    script.
+        $(document).ready(function() {
+            $('.button-collapse').sideNav();
+        });

@@ -1,10 +1,13 @@
 extends layout
 
+block header
+	link(rel='stylesheet', href='/css/error.css')
+
 block content
-  .vailign-wrapper(style="height: 100%;")
-      .container.valign#content
-          h1.center-align #{error.status} #{message}
-          pre #{error.stack}
-              hr
-              h2.center-align#return_home
-                  a(href="/") Return Home
+	#content.container.valign
+		h1#error_code.center-align Error: #{error.status} #{message}
+		hr
+		pre #{error.stack}
+		.center-align
+			a#turnAround.waves-effect.waves-light.btn(href="/") Return Home
+				i.mdi-navigation-arrow-back.left
