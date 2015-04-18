@@ -4,7 +4,9 @@
   "homepage": "https://github.com/alanplotko/RoadTrip",
   "authors": [
     "Alan Plotko <alan.plotko@gmail.com",
-    "William Jagels <will.jagels@gmail.com>"
+    "William Jagels <will.jagels@gmail.com>",
+    "Gabriel Ochoa <gochoa1@binghamton.edu>",
+    "Simeon Videnov <svideno1@binghamton.edu>"
   ],
   "main": "app.js",
   "license": "MIT",

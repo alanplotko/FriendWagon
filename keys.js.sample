@@ -1,0 +1,4 @@
+var keys = {}
+keys.SOMETHING = ''
+
+module.exports = keys;
