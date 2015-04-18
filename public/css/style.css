@@ -11,12 +11,12 @@ body {
 ----------------*/
 
 nav {
-	background-color: #212121;
+	background-color: #263238;
 	padding: 0 10px;
 }
 
 nav .brand-logo {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 }
 
@@ -60,20 +60,20 @@ ul.side-nav li.home:hover {
 }
 
 ul.side-nav li.home {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #000;
 	font-size: 24px;
 }
 
 ul.side-nav a {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	font-size: 18px;
 }
 
 nav ul a {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 1.2rem;
 }
@@ -83,8 +83,9 @@ nav ul a {
 ----------------*/
 
 #map_canvas, div#map-wrapper {
-	height: calc(100vh - 64px);
+	height: 100%;
 	margin: 0;
+	overflow-y: scroll;
 }
 
 p.gmaps-name {
@@ -98,12 +99,12 @@ p.gmaps-name {
 ----------------*/
 
 label {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 }
 
 input {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 /*--------------
@@ -111,47 +112,19 @@ input {
 ----------------*/
 
 #sidebar {
-	background-color: #eee;
+	height: calc(100vh - 64px);
+	padding: 20px;
+	border-right: 2px solid #263238;
+}
+
+#sidebar .content {
 	height: 100%;
-	border-right: 5px solid #212121;
-	overflow-y: scroll;
 }
 
 #sidebar p {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	padding: 10px 10px 0 10px;
-}
-
-#sidebar p.prediction-title {
-	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	border-bottom: 2px solid #212121;
-	padding: 10px 10px 0 0;
-	display: block;
-}
-
-#sidebar p.prediction-description {
-	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
-	padding: 10px 10px 0 10px;
-}
-
-#sidebar #error {
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
-	border: 1px solid #212121;
-	padding: 10px;
-	display: none;
-}
-
-#submit-wrapper {
-	margin-top: 30px;
-}
-
-a#submitBtn {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
 }
 
 /*--------------
@@ -164,14 +137,14 @@ a#submitBtn {
 }
 
 #history h1 {
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
 	font-size: 36px;
 	margin: 0;
 }
 
 .card .card-action a {
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
 	color: #000;
 	cursor: pointer;
@@ -182,12 +155,12 @@ a#submitBtn {
 }
 
 .card-reveal {
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
 }
 
 .card .card-title {
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 24px;
 	margin: 0;
 }
@@ -200,22 +173,22 @@ a#submitBtn {
 	Scrollbar
 ----------------*/
 
-::-webkit-scrollbar {
+#map-wrapper::-webkit-scrollbar {
 	width: 8px;
 	height: 4px;
 }
 
-::-webkit-scrollbar-track-piece {
-	background-color: #eee;
+#map-wrapper::-webkit-scrollbar-track-piece {
+	background-color: #263238;
 }
 
-::-webkit-scrollbar-thumb:vertical {
+#map-wrapper::-webkit-scrollbar-thumb:vertical {
 	height: 5px;
 	background-color: #adadad;
 	box-shadow: inset 1px 0 4px #999;
 }
 
-::-webkit-scrollbar-thumb:horizontal {
+#map-wrapper::-webkit-scrollbar-thumb:horizontal {
 	width: 5px;
 	background-color: #adadad;
 	box-shadow: inset 1px 0 4px #999;

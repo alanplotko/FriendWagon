@@ -16,7 +16,7 @@ body::after {
 	z-index: -1;
     background: url('../img/bg.jpg');
     background-size: cover;
-    opacity: 0.7;
+    opacity: 0.3;
 }
 
 h1.logo {
@@ -36,5 +36,6 @@ h2 {
 
 a#create {
 	font-size: 18px;
-	margin-top: 20px;
+	position: relative;
+	top: 50px;
 }
