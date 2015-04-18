@@ -1,0 +1,11 @@
+script(src="https://apis.google.com/js/client:platform.js" async defer)
+
+#signinButton
+  span.g-signin(
+	data-scope="https://www.googleapis.com/auth/plus.login"
+	data-clientid=clientID
+	data-redirecturi="postmessage"
+	data-accesstype="offline"
+	data-cookiepolicy="single_host_origin"
+	data-callback="signInCallback")
+#result
