@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/roadtrip', function(req, res, next) {
-  res.render('view_roadtrip', { title: 'My Road Trip' });
+  res.render('roadtrip', { title: 'My Road Trip' });
 });
 
 module.exports = router;
