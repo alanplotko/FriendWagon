@@ -1,12 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
   .vailign-wrapper(style="height: 100%;")
       .container.valign#content
-          h1.center-align#error_code #{message}
+          h1.center-align #{error.status} #{message}
+          pre #{error.stack}
               hr
               h2.center-align#return_home
                   a(href="/") Return Home
