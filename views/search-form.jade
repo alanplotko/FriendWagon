@@ -14,6 +14,10 @@ block content
 				form#searchRoadTrips.col.s6.offset-s3(action='#', method='POST')
 					.row
 						.input-field.col.s12
+							input#origin.validate(type='text', required='required')
+							label(for='origin') Origin
+					.row
+						.input-field.col.s12
 							input#destination.validate(type='text', required='required')
 							label(for='destination') Destination
 					.row
@@ -50,7 +54,7 @@ block content
 					$.each(locations, function(index, value) {
 						var $card = $('<div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src=""></div><div class="card-content"><span class="card-title activator grey-text text-darken-4"></span><p></p></div></div>');
 						$card.find(".card-title").text(value.origin + " -> " + value.destination);
-						$card.find(".card-content p").text(value.seats + " seats are available for this road trip. Hosted by " + value.userid + ".");
+						$card.find(".card-content p").html(value.seats + " seats are available for this road trip. Hosted by " + value.userid + "." + " <a href='/roadtrip/" + value._id + "'>Click here to view this road trip!</a>");
 						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?path=color:0x0000ff%7Cweight:5%7C" + value.origin + "%7C" + value.destination + "&markers=color:green%7Clabel:A%7C" + value.origin + "%7C\&markers=color:red%7Clabel:B%7C" + value.destination + "%7C&size=400x300");
 						$card.css('display', 'none');
 						$('#searchResults').append($card);
