@@ -58,6 +58,7 @@ router.post('/add',function(req, res, next){
     collection.insert(doctoadd, function(err, records){
         console.log("Record added as "+records);
     });
+    res.redirect('/roadtrip/' + req.body.loggeduser);
 });
 
 module.exports = router;

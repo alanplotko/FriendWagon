@@ -12,24 +12,25 @@ block content
 			.row.center-align
 				#searchResults.col.s12
 			div.container.col.s12
-				form#searchRoadTrips.col.s6.offset-s3(action='#', method='POST')
+				form#searchRoadTrips.col.s6.offset-s3(action='/trips/add', method='POST', style='margin-left: 45%;')
 					.row
 						.input-field.col.s12
-							input#destination.validate(type='text', required='required')
-							label(for='destination') Origin
+							input#origin.validate(type='text', required='required', name='startPlace')
+							label(for='origin') Origin
 					.row
 						.input-field.col.s12
-							input#destination.validate(type='text', required='required')
+							input#destination.validate(type='text', required='required', name='endPlace')
 							label(for='destination') Destination
 					.row
 						.input-field.col.s12
-							input#time.datepicker(type='date')
+							input#time.datepicker(type='date', name='calendar')
 							label(for='time') Date
 					.row
 						.input-field.col.s12
 							p.range-field
-								input#seats.validate(type='range', min='1', max='7', value='3', style='border: none;')
+								input#seats.validate(type='range', min='1', max='7', value='3', name='seats' style='border: none;')
 								label(for='seats',style='margin: 20px 0 0 -12px;') Number of Available Seats
+					input#userid(type='hidden',name='loggeduser')
 					button.btn.waves-effect.waves-light(type='submit', name='action', style='font-size: 18px; float: right;') Submit
 						i.mdi-content-send.right
 		
@@ -38,4 +39,12 @@ block content
 	script.
 		$(document).ready(function() {
 			$('.datepicker').pickadate({ selectMonths: true, selectYears: 1 });
+			var text = "";
+			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+			for(var i=0; i < 5; i++) {
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+			}
+
+			$('#userid').val(text);
 		});
