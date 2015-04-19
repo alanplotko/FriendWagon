@@ -18,16 +18,6 @@ function(tokens, profile, done) {
     done(null, profile, tokens);
 }));
 
-function signInCallback(authResult) {
-    if (authResult.code) {
-        $.post('/auth/google/callback', { id_token: authResult.id_token})
-        .done(function(data) {
-            $('#signinButton').hide();
-        });
-    } else if (authResult.error) {
-        console.log('There was an error: ' + authResult.error);
-    }
-};
 
 router.get('/', function(req, res, next) {
     //res.send('respond with a resource');
