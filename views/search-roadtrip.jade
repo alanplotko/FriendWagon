@@ -25,35 +25,16 @@ block content
 				hr
 				.row
 					#guestWrapper.container
-						.col.s3
-							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-							p NAME 1
-						.col.s3
-							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-							p NAME 2
-						.col.s3
-							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-							p NAME 3
-						.col.s3
-							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-							p NAME 4
 			include footer.jade
-
-	script(src='/js/gmaps.js')
 
 	script.
 		$(document).ready(function() {
 			$('#sidebar').css('height', $(document).height() + 'px');
 			var tripData, userData;
 			$.ajax({
-				url: 'http://s4.jagels.io:3000/trips',
+				url: 'http://s4.jagels.io:3000/trips/' + userid,
 				success: function(data) {
-					$.each(data, function(index, value) {
-						if(value._id === req.params.id) {
-							tripData = value;
-							return;
-						}
-					});
+					tripData = value;
 				},
 				type: 'GET'
 			});
@@ -64,10 +45,79 @@ block content
 				},
 				type: 'GET'
 			});
+			$.each(tripData.riders, function(index, value) {
+				$avatar = $('<div class="col s3"><img class="avatar" src="" /><p></p></div>');
+				$avatar.find('p').text(value);
+				var emailHash;
+				$.ajax({
+					url: 'http://s4.jagels.io:3000/users/u/' + value,
+					success: function(data) {
+						emailHash = data[0].emailhash;
+					},
+					type: 'GET'
+				});
+				$avatar.find('img').attr('src', 'https://2.gravatar.com/avatar/' + emailHash + '?s=132&d=wavatar');
+				$('#guestWrapper').append($avatar);
+			});
 			$('p#hostName').text(userData.name);
 			$('p#destination').text(tripData.destination);
 			var d = new Date(0);
 			d.setUTCSeconds(tripData.time);
 			$('p#date').text(d);
 			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
+
+			var map;
+			var global_markers = [];
+			var infowindow = new google.maps.InfoWindow({});
+			var count = 0;
+			var markers = [];
+			geocoder = new google.maps.Geocoder();
+			var ogn, dsn;
+			geocoder.geocode({
+			    'address': tripData.origin
+			}, function( results, status ) {
+			    if( status == google.maps.GeocoderStatus.OK ) {
+			        ogn = results[0].geometry.location;
+			    }
+			});
+			geocoder.geocode({
+			    'address': tripData.destination
+			}, function( results, status ) {
+			    if( status == google.maps.GeocoderStatus.OK ) {
+			        dsn = results[0].geometry.location;
+			    }
+			});
+			var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
+			var myOptions = {
+			  zoom: 17,
+			  center: ogn,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions),
+			     marker = new google.maps.Marker({
+			         position: ogn,
+			         map: map,
+			         icon: image
+			     });
+
+			var directionsService = new google.maps.DirectionsService();
+			directionsDisplay = new google.maps.DirectionsRenderer();
+			directionsDisplay.setMap(map);
+
+			var request = {
+			  origin: ogn,
+			  destination: dsn,
+			  travelMode: google.maps.TravelMode.DRIVING
+			};
+			directionsService.route(request, function(result, status) {
+			  if (status == google.maps.DirectionsStatus.OK) {
+			    directionsDisplay.setDirections(result);
+			  }
+			});
+
+			/*var defaultBounds = new google.maps.LatLngBounds(
+			  new google.maps.LatLng(38.995817, -77.04106),
+			  new google.maps.LatLng(38.790399, -77.040591)
+			);
+			map.fitBounds(defaultBounds);*/
 		});

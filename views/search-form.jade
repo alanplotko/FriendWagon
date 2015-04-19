@@ -8,6 +8,7 @@ block content
 	#content-wrapper.row
 		div(style='height:calc(100vh - 50px); overflow-y: scroll;')
 			p#search.center-align Search Road Trips
+			hr.separator
 			.row.center-align
 				#searchResults.col.s12
 			div.container.col.s12
@@ -23,7 +24,7 @@ block content
 					.row
 						.input-field.col.s12
 							p.range-field
-								input#seats.validate(type='range', min='1', max='7', value='3', style='border: none;')
+								input#seats.validate(type='range', min='1', max='7', value='4', style='border: none;')
 								label(for='seats',style='margin: 20px 0 0 -12px;') Number of Available Seats
 					button.btn.waves-effect.waves-light(type='submit', name='action', style='font-size: 18px; float: right;') Submit
 						i.mdi-content-send.right
@@ -50,7 +51,7 @@ block content
 					$.each(locations, function(index, value) {
 						var $card = $('<div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src=""></div><div class="card-content"><span class="card-title activator grey-text text-darken-4"></span><p></p></div></div>');
 						$card.find(".card-title").text(value.origin + " -> " + value.destination);
-						$card.find(".card-content p").html(value.seats + " seats are available for this road trip. Hosted by " + value.userid + "." + " <a href='/roadtrip/" + value._id + "'>Click here to view this road trip!</a>");
+						$card.find(".card-content p").html(value.seats + " seats are available for this road trip. Hosted by " + value.userid + "." + " <a href='/roadtrip/" + value.userid + "'>Click here to view this road trip!</a>");
 						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?path=color:0x0000ff%7Cweight:5%7C" + value.origin + "%7C" + value.destination + "&markers=color:green%7Clabel:A%7C" + value.origin + "%7C\&markers=color:red%7Clabel:B%7C" + value.destination + "%7C&size=400x300");
 						$card.css('display', 'none');
 						$('#searchResults').append($card);

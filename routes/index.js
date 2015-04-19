@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/create', function(req, res, next) {
-  res.render('create-roadtrip', { title: 'Create Road Trip' });
+  res.render('create-form', { title: 'Create Road Trip' });
 });
 
 router.get('/search', function(req, res, next) {

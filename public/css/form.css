@@ -28,10 +28,15 @@ footer.page-footer .footer-copyright {
 #search {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 48px;
+	font-weight: 300;
 	width: 100%;
 	color: #fff;
 	margin: 0;
-	padding: 50px;
+	padding: 40px 0 0 0;
+}
+
+hr.separator {
+	margin-bottom: 40px;
 }
 
 form {
