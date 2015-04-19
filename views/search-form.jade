@@ -23,7 +23,7 @@ block content
 					.row
 						.input-field.col.s12
 							p.range-field
-								input#seats.validate(type='range', min='0', max='7', value='3', style='border: none;')
+								input#seats.validate(type='range', min='1', max='7', value='3', style='border: none;')
 								label(for='seats',style='margin: 20px 0 0 -12px;') Number of Available Seats
 					button.btn.waves-effect.waves-light(type='submit', name='action', style='font-size: 18px; float: right;') Submit
 						i.mdi-content-send.right
@@ -44,7 +44,7 @@ block content
 					var locations = [];
 					$.each(data, function(index, value) {
 						if(value.destination === $('input#destination').val() && value.seats >= parseInt($('input#seats').val())) {
-							location.push(value);
+							locations.push(value);
 						}
 					});
 					$.each(locations, function(index, value) {
