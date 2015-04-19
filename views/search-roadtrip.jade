@@ -8,7 +8,12 @@ block header
 block content
 	#content-wrapper.row
 		#sidebar.col.s3
-			.content
+			#preloaderAreaSidebar.valign-wrapper(style='height: calc(100vh - 40.5px);')
+				#preloaderSidebar.preloader-wrapper.big.active.valign(style='left: 35%;')
+						.spinner-layer.spinner-blue-only
+							.circle-clipper.left
+								.circle
+			.content(style='display: none;')
 				a(href='/', style='color: #fff;')
 					h1.logo Friendwagon
 				img#host.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
@@ -24,7 +29,12 @@ block content
 				p#date
 					span.data Date:
 					i.mdi-device-access-time.left
-		#map-wrapper.left.col.s9
+		#preloaderArea.valign-wrapper(style='height: calc(100vh - 40.5px);')
+			#preloader.preloader-wrapper.big.active.valign(style='left: 45%;')
+					.spinner-layer.spinner-blue-only
+						.circle-clipper.left
+							.circle
+		#map-wrapper.left.col.s9(style='display: none;')
 			#map_canvas
 			#people
 				h1 Guests
@@ -117,6 +127,8 @@ block content
 					    directionsDisplay.setDirections(result);
 					  }
 					});
+					$('#preloaderArea').fadeOut();
+					$('#map-wrapper').fadeIn();
 					$('#sidebar').css('height', $(document).height() + 'px');
 				});
 			});

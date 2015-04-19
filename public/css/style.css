@@ -129,7 +129,9 @@ body {
 
 footer {
 	margin-top: 0!important;
-	width: 100%;
+	width: inherit;
+	position: fixed;
+	bottom: 1px;
 }
 
 footer.page-footer .footer-copyright {
