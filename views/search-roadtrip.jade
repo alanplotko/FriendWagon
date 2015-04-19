@@ -80,14 +80,14 @@ block content
 			    'address': tripData.origin
 			}, function( results, status ) {
 			    if( status == google.maps.GeocoderStatus.OK ) {
-			        ogn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
+			        ogn = new google.maps.LatLng(results[0].geometry.location['k'], results[0].geometry.location['D']);
 			    }
 			});
 			geocoder.geocode({
 			    'address': tripData.destination
 			}, function( results, status ) {
 			    if( status == google.maps.GeocoderStatus.OK ) {
-			        dsn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
+			        dsn = new google.maps.LatLng(results[0].geometry.location['k'], results[0].geometry.location['D']);
 			    }
 			});
 			var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
