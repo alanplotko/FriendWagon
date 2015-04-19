@@ -24,10 +24,21 @@ footer {
 	font-size: 48px;
 	width: 100%;
 	color: #fff;
+	margin: 0;
+	padding: 50px;
 }
 
-input  {
+form {
+	padding: 100px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+input, .input-field label  {
 	color: #fff;
+	font-size: 18px;
+}
+
+input[type=text] {
 	font-size: 18px;
 }
 

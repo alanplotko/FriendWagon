@@ -6,23 +6,32 @@ block header
 
 block content
 	#content-wrapper.row
-		div(style='height:calc(100vh - 50px);')
+		div(style='height:calc(100vh - 50px); padding')
 			p#search.center-align Search Road Trips
-			form.col.s12
-				.row
-					.input-field.col.s12
-						input#first_name.validate(type='text')
-						label(for='first_name') First Name
-				.row
-					.input-field.col.s12
-						input#first_name.validate(type='text')
-						label(for='first_name') First Name
-				.row
-					.input-field.col.s12
-						input#first_name.validate(type='text')
-						label(for='first_name') First Name
-				.row
-					.input-field.col.s12
-						input#first_name.validate(type='text')
-						label(for='first_name') First Name
+			div.container.col.s12
+				form.col.s6.offset-s3
+					.row
+						.input-field.col.s12
+							input#origin.validate(type='text')
+							label(for='origin') Origin
+					.row
+						.input-field.col.s12
+							input#destination.validate(type='text')
+							label(for='destination') Destination
+					.row
+						.input-field.col.s12
+							input#time.datepicker.validate(type='date')
+							label(for='time')
+					.row
+						.input-field.col.s12
+							input#seats.validate(type='text')
+							label(for='seats') Number of Available Seats
 		include footer.jade
+
+script.
+	$(document).ready(function() {
+		$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 1 // Creates a dropdown of 15 years to control year
+		});
+	});
