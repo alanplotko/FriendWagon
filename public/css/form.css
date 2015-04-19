@@ -17,6 +17,8 @@ body {
 footer {
 	margin-top: 0!important;
 	width: 100%;
+	position: fixed;
+	bottom: 0;
 }
 
 footer.page-footer .footer-copyright {
@@ -59,4 +61,29 @@ input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([
 	margin: 0.5rem 20px 1rem 0;
 	width: 400px;
 	display: inline-block;
+}
+
+/*--------------
+	Scrollbar
+----------------*/
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 4px;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #263238;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	height: 5px;
+	background-color: #adadad;
+	box-shadow: inset 1px 0 4px #999;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	width: 5px;
+	background-color: #adadad;
+	box-shadow: inset 1px 0 4px #999;
 }
