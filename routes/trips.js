@@ -51,7 +51,9 @@ router.post('/add',function(req, res, next){
     "userid" : req.body.loggeduser,
     "time" : req.body.calendar,
     "seats" : req.body.seats,
-    "riders" : []
+    "riders" : [],
+    "name" : "Brick Hacker",
+    "phonenum" : "123456789"
     }
     var collection = db.collection('trips');
     console.log(req.body);
