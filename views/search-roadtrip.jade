@@ -12,12 +12,15 @@ block content
 				a(href='/', style='color: #fff;')
 					h1.logo Friendwagon
 				img#host.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-				p#hostName Hosted by Fname Lname
-					i.mdi-social-person.left
-				p#destination Destination
-					i.mdi-maps-pin-drop.left
-				p#date Date
-					i.mdi-device-access-time.left
+				p#hostName
+					span.data Hosted by Fname Lname
+						i.mdi-social-person.left
+				p#destination
+					span.data Destination
+						i.mdi-maps-pin-drop.left
+				p#date
+					span.data Date
+						i.mdi-device-access-time.left
 		#map-wrapper.left.col.s9
 			#map_canvas
 			#people
@@ -61,13 +64,12 @@ block content
 				$avatar.find('img').attr('src', 'https://2.gravatar.com/avatar/' + emailHash + '?s=132&d=wavatar');
 				$('#guestWrapper').append($avatar);
 			});
-			$('p#hostName').text(userData.name);
-			$('p#destination').text(tripData.destination);
+			$('p#hostName span.data').text(userData.name);
+			$('p#destination span.data').text(tripData.destination);
 			var d = new Date(0);
 			d.setUTCSeconds(tripData.time);
-			$('p#date').text(d);
+			$('p#date span.data').text(d);
 			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
-			$('#sidebar').css('height', $(document).height() + 'px');
 
 			var map;
 			var global_markers = [];
@@ -115,12 +117,7 @@ block content
 					    directionsDisplay.setDirections(result);
 					  }
 					});
+					$('#sidebar').css('height', $(document).height() + 'px');
 				});
 			});
-			
-			/*var defaultBounds = new google.maps.LatLngBounds(
-			  new google.maps.LatLng(38.995817, -77.04106),
-			  new google.maps.LatLng(38.790399, -77.040591)
-			);
-			map.fitBounds(defaultBounds);*/
 		});
