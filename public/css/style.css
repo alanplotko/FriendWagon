@@ -131,3 +131,7 @@ footer {
 	margin-top: 0!important;
 	width: 100%;
 }
+
+footer.page-footer .footer-copyright {
+	background-color: teal;
+}

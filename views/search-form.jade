@@ -9,7 +9,7 @@ block content
 		div(style='height:calc(100vh - 50px); padding')
 			p#search.center-align Search Road Trips
 			div.container.col.s12
-				form.col.s6.offset-s3
+				form#searchRoadTrips.col.s6.offset-s3
 					.row
 						.input-field.col.s12
 							input#origin.validate(type='text')
@@ -21,17 +21,40 @@ block content
 					.row
 						.input-field.col.s12
 							input#time.datepicker.validate(type='date')
-							label(for='time')
+							label(for='time') Date
 					.row
 						.input-field.col.s12
-							input#seats.validate(type='number')
-							label(for='seats') Number of Available Seats
+							p.range-field
+								input#seats.validate(type='range', min='0', max='7', value='3', style='border: none;')
+								label(for='seats',style='margin: 20px 0 0 -12px;') Number of Available Seats
+					button.btn.waves-effect.waves-light(type='submit', name='action', style='font-size: 18px; float: right;') Submit
+						i.mdi-content-send.right
+		.row
+			#searchResults.col.s12.m7
+		
 		include footer.jade
 
-script.
-	$(document).ready(function() {
-		$('.datepicker').pickadate({
-			selectMonths: true, // Creates a dropdown to control month
-			selectYears: 1 // Creates a dropdown of 15 years to control year
+	script.
+		$(document).ready(function() {
+			$('.datepicker').pickadate({ selectMonths: true, selectYears: 1 });
 		});
-	});
+
+		$('#searchRoadTrips').submit(function(event) {
+			$.ajax({
+				url: 'http://s4.jagels.io:3000/trips',
+				data: { format: 'json' },
+				dataType: 'jsonp',
+				success: function(data) {
+					$('#searchRoadTrips').css('display', 'none');
+					$.each(data, function() {
+						var $card = $('<div class="card"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
+						$card.find(".card-title").text(data.origin + " -> " + data.destination);
+						$card.find(".card-content p").text(data.seats + " seats are available for this road trip. Hosted by " + data.userid);
+						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + data.destination + "&zoom=15&size=400x300&markers=" +  data.destination);
+						$('#searchResults').append($card);
+					});
+				},
+				type: 'GET'
+			});
+			event.preventDefault();
+		});

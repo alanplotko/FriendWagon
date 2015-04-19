@@ -19,6 +19,10 @@ footer {
 	width: 100%;
 }
 
+footer.page-footer .footer-copyright {
+	background-color: teal;
+}
+
 #search {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 48px;
