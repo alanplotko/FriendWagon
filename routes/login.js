@@ -4,6 +4,8 @@ var querystring = require('querystring');
 var express = require('express');
 var router = express.Router();
 
+var stateKey = 'spotify_auth_state';
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
