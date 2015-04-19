@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
         assert.equal(null, err);
         var collection = db.collection('trips');
         collection.find().toArray(function(err, docs) {
-            req.send(docs);
+            res.send(docs);
         });
     });
 
