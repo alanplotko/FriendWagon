@@ -12,11 +12,17 @@ block content
 				a(href='/', style='color: #fff;')
 					h1.logo Friendwagon
 				img#host.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-				p#hostName Hosted by Fname Lname
+				p#hostName
+					span.data Hosted by
 					i.mdi-social-person.left
-				p#destination Destination
+				p#origin
+					span.data Origin:
+					i.mdi-maps-my-location.left
+				p#destination
+					span.data Destination:
 					i.mdi-maps-pin-drop.left
-				p#date Date
+				p#date
+					span.data Date:
 					i.mdi-device-access-time.left
 		#map-wrapper.left.col.s9
 			#map_canvas
@@ -61,13 +67,14 @@ block content
 				$avatar.find('img').attr('src', 'https://2.gravatar.com/avatar/' + emailHash + '?s=132&d=wavatar');
 				$('#guestWrapper').append($avatar);
 			});
-			$('p#hostName').text(userData.name);
-			$('p#destination').text(tripData.destination);
+			$('p#hostName span.data').text($('p#hostName span.data').text() + " " + userData.name);
+			$('p#origin span.data').text($('p#origin span.data').text() + " " + tripData.origin);
+			$('p#destination span.data').text($('p#destination span.data').text() + " " + tripData.destination);
 			var d = new Date(0);
 			d.setUTCSeconds(tripData.time);
-			$('p#date').text(d);
-			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
-			$('#sidebar').css('height', $(document).height() + 'px');
+			d = d.toLocaleDateString();
+			$('p#date span.data').text($('p#date span.data').text() + " "  + d);
+			$('img#host').attr('src', 'http://s.gravatar.com/avatar/' + userData.emailhash + '?s=150&d=wavatar');
 
 			var map;
 			var global_markers = [];
@@ -80,47 +87,37 @@ block content
 			    'address': tripData.origin
 			}, function( results, status ) {
 			    if( status == google.maps.GeocoderStatus.OK ) {
-			        ogn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
+			        ogn = new google.maps.LatLng(results[0].geometry.location['k'], results[0].geometry.location['D']);
 			    }
-			});
-			geocoder.geocode({
-			    'address': tripData.destination
-			}, function( results, status ) {
-			    if( status == google.maps.GeocoderStatus.OK ) {
-			        dsn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
-			    }
-			});
-			var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
-			var myOptions = {
-			  zoom: 17,
-			  center: ogn,
-			  mapTypeId: google.maps.MapTypeId.ROADMAP
-			}
-			var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions),
-			     marker = new google.maps.Marker({
-			         position: ogn,
-			         map: map,
-			         icon: image
-			     });
+			    geocoder.geocode({
+				    'address': tripData.destination
+				}, function( results, status ) {
+				    if( status == google.maps.GeocoderStatus.OK ) {
+				        dsn = new google.maps.LatLng(results[0].geometry.location['k'], results[0].geometry.location['D']);
+				    }
+				    var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
+					var myOptions = {
+					  zoom: 17,
+					  center: ogn,
+					  mapTypeId: google.maps.MapTypeId.ROADMAP
+					}
+					var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+					
+					var directionsService = new google.maps.DirectionsService();
+					directionsDisplay = new google.maps.DirectionsRenderer();
+					directionsDisplay.setMap(map);
 
-			var directionsService = new google.maps.DirectionsService();
-			directionsDisplay = new google.maps.DirectionsRenderer();
-			directionsDisplay.setMap(map);
-
-			var request = {
-			  origin: ogn,
-			  destination: dsn,
-			  travelMode: google.maps.TravelMode.DRIVING
-			};
-			directionsService.route(request, function(result, status) {
-			  if (status == google.maps.DirectionsStatus.OK) {
-			    directionsDisplay.setDirections(result);
-			  }
+					var request = {
+					  origin: ogn,
+					  destination: dsn,
+					  travelMode: google.maps.TravelMode.DRIVING
+					};
+					directionsService.route(request, function(result, status) {
+					  if (status == google.maps.DirectionsStatus.OK) {
+					    directionsDisplay.setDirections(result);
+					  }
+					});
+					$('#sidebar').css('height', $(document).height() + 'px');
+				});
 			});
-
-			/*var defaultBounds = new google.maps.LatLngBounds(
-			  new google.maps.LatLng(38.995817, -77.04106),
-			  new google.maps.LatLng(38.790399, -77.040591)
-			);
-			map.fitBounds(defaultBounds);*/
 		});

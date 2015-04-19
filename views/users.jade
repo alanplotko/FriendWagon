@@ -1,11 +1,28 @@
-script(src="https://apis.google.com/js/client:platform.js" async defer)
+extends layout
 
-#signinButton
-  span.g-signin(
-	data-scope="https://www.googleapis.com/auth/plus.login"
-	data-clientid=clientID
-	data-redirecturi="postmessage"
-	data-accesstype="offline"
-	data-cookiepolicy="single_host_origin"
-	data-callback="signInCallback")
-#result
+block header
+    script(src="https://apis.google.com/js/client:platform.js" async defer)
+
+block content
+    #signinButton
+        span.g-signin(
+            data-scope="https://www.googleapis.com/auth/plus.login"
+            data-clientid=clientID
+            data-redirecturi="postmessage"
+            data-accesstype="offline"
+            data-cookiepolicy="single_host_origin"
+            data-callback="signInCallback"
+        )
+    #result
+
+    script.
+        function signInCallback(authResult) {
+            if (authResult.code) {
+                $.post('/auth/google/callback', { id_token: authResult.id_token})
+                .done(function(data) {
+                    $('#signinButton').hide();
+                });
+            } else if (authResult.error) {
+                console.log('There was an error: ' + authResult.error);
+            }
+        };
