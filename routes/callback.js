@@ -10,7 +10,7 @@ var express = require('express');
 var router = express.Router();
 
 //spotify callback
-app.get('/callback', function(req, res) {
+router.get('/callback', function(req, res) {
 
   // your application requests refresh and access tokens
   // after checking the state parameter
