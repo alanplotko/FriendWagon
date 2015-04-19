@@ -44,8 +44,7 @@ router.get('/u/:id', function(res, req, next) {
         console.log("Connected correctly to server");
         var collection = db.collection('users');
         collection.find({'userid': res.params.id}).toArray(function(err, docs) {
-            console.log(docs);
-            req.send();
+            req.send(docs);
         });
     });
 });
