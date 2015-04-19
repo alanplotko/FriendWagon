@@ -6,21 +6,17 @@ block header
 
 block content
 	#content-wrapper.row
-		div(style='height:calc(100vh - 50px); padding')
+		div(style='height:calc(100vh - 50px);')
 			p#search.center-align Search Road Trips
 			div.container.col.s12
-				form#searchRoadTrips.col.s6.offset-s3
+				form#searchRoadTrips.col.s6.offset-s3(action='#', method='POST')
 					.row
 						.input-field.col.s12
-							input#origin.validate(type='text')
-							label(for='origin') Origin
-					.row
-						.input-field.col.s12
-							input#destination.validate(type='text')
+							input#destination.validate(type='text', required='required')
 							label(for='destination') Destination
 					.row
 						.input-field.col.s12
-							input#time.datepicker.validate(type='date')
+							input#time.datepicker(type='date')
 							label(for='time') Date
 					.row
 						.input-field.col.s12
@@ -40,21 +36,21 @@ block content
 		});
 
 		$('#searchRoadTrips').submit(function(event) {
+			event.preventDefault();
+			var trips;
 			$.ajax({
 				url: 'http://s4.jagels.io:3000/trips',
-				data: { format: 'json' },
-				dataType: 'jsonp',
 				success: function(data) {
-					$('#searchRoadTrips').css('display', 'none');
-					$.each(data, function() {
-						var $card = $('<div class="card"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
-						$card.find(".card-title").text(data.origin + " -> " + data.destination);
-						$card.find(".card-content p").text(data.seats + " seats are available for this road trip. Hosted by " + data.userid);
-						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + data.destination + "&zoom=15&size=400x300&markers=" +  data.destination);
-						$('#searchResults').append($card);
-					});
+					trips = data;
 				},
 				type: 'GET'
+			});			
+			$('#searchRoadTrips').css('display', 'none');
+			$.each(trips, function(trip) {
+				var $card = $('<div class="card"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
+				$card.find(".card-title").text(trip.origin + " -> " + trip.destination);
+				$card.find(".card-content p").text(trip.seats + " seats are available for this road trip. Hosted by " + trip.userid);
+				$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + trip.destination + "&zoom=15&size=400x300&markers=" +  trip.destination);
+				$('#searchResults').append($card);
 			});
-			event.preventDefault();
 		});
