@@ -28,11 +28,8 @@ router.get('/', function(req, res, next) {
             res.send(docs);
         });
     });
-
-    //res.render('trips', {title : 'Users', clientID : keys.clientID});
-
 });
-
+/*
 router.post('/add',function(req,res){
     var doctoadd = {"origin" : req.body.startPlace, 
                     "destination" : req.body.endPlace, 
@@ -46,7 +43,7 @@ router.post('/add',function(req,res){
             console.log("Record added as "+records[0]._id);
         });
     }
-
+*/
 module.exports = router;
 
 
