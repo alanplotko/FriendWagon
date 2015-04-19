@@ -1,1 +1,28 @@
 p Hello, Thanks for logging in
+
+script(id="loggedin-template" type="text/x-handlebars-template")
+	h1 Logged in as {{display_name}}
+	img(id="avatar" width="200" src="{{images.0.url}}")
+	dl
+	dt Display name
+		dd {{display_name}}
+		|      
+		dt Username
+		dd {{id}}
+		|      
+		dt Email
+		dd {{email}}
+		|      
+		dt Spotify URI
+		dd
+		a(href='{{external_urls.spotify}}') {{external_urls.spotify}}
+		|      
+		dt Link
+		dd
+		a(href='{{href}}') {{href}}
+		|      
+		dt Profile Image
+		dd {{images.0.url}}
+
+	p
+		a(href="/") Log in again

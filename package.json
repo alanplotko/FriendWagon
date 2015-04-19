@@ -16,6 +16,7 @@
     "passport-google": "^0.3.0",
     "passport-google-plus": "^0.5.1",
     "serve-favicon": "~2.2.0",
-    "spotify-web-api-node": "^2.0.1"
+    "spotify-web-api-node": "^2.0.1",
+    "twilio": "^2.0.0"
   }
 }
