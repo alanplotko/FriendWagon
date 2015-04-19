@@ -51,13 +51,20 @@ router.post('/add',function(req, res, next){
     "userid" : req.body.loggeduser,
     "time" : req.body.calendar,
     "seats" : req.body.seats,
-    "riders" : [],
+    "riders" : []
+    }
+    var usertoadd = {
+    "userid" : req.body.loggeduser,
     "name" : "Brick Hacker",
     "phonenum" : "123456789"
     }
     var collection = db.collection('trips');
     console.log(req.body);
+    var usercol = db.collection('users');
     collection.insert(doctoadd, function(err, records){
+        console.log("Record added as "+records);
+    });
+    usercol.insert(usertoadd, function(err, records){
         console.log("Record added as "+records);
     });
     res.redirect('/roadtrip/' + req.body.loggeduser);
