@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
         });
     });
 
-    res.render('trips', {title : 'Users', clientID : keys.clientID});
+    //res.render('trips', {title : 'Users', clientID : keys.clientID});
 
 });
 
