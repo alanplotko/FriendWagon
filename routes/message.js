@@ -9,7 +9,7 @@ router.post('/incoming', function(req, res, next) {
         body: req.body.body,
         to: keys.TIWLIO_TO,
     }, function(err, message) {
-        res.send(message.sid);
+        res.send("hey");//message.sid);
     });
 });
 
