@@ -86,8 +86,9 @@ block content
 			$('p#date span.data').text($('p#date span.data').text() + " "  + d);
 			$('img#host').attr('src', 'http://s.gravatar.com/avatar/' + userData.emailhash + '?s=150&d=wavatar');
 
-			$('#preloaderAreaSidebar').fadeOut();
-			$('#sidebar .content').fadeIn();
+			$('#preloaderAreaSidebar').fadeOut(function() {
+				$('#sidebar .content').fadeIn();
+			});
 
 			var map;
 			var global_markers = [];
@@ -130,9 +131,10 @@ block content
 					    directionsDisplay.setDirections(result);
 					  }
 					});
-					$('#preloaderArea').fadeOut();
 					$('#map-wrapper').fadeIn(function() {
-						$('#sidebar').css('height', $(document).height() + 'px');
+						$('#preloaderArea').fadeOut(function() {
+							$('#sidebar').css('height', $(document).height() + 'px');
+						});
 					});
 				});
 			});
