@@ -10,6 +10,13 @@ body {
 	margin: 0;
 }
 
+#placeholder {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 48px;
+	width: 100%;
+	color: #bbb;
+}
+
 /*--------------
 	Google Maps
 ----------------*/
@@ -17,6 +24,7 @@ body {
 #map-wrapper {
 	height: calc(100vh - 64px);
 	padding: 0;
+	display: none;
 }
 
 #map_canvas {

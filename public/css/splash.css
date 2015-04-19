@@ -34,8 +34,16 @@ h2 {
 	color: #FAFAFA;
 }
 
-a#create {
+a.splashBtn {
 	font-size: 18px;
 	position: relative;
 	top: 50px;
+	font-size: 20px;
+	border: 2px solid #fff;
+	color: #fff;
+	padding: 0 50px;
+}
+
+a.splashBtn:hover {
+	background: rgba(0, 128, 128, 0.5);
 }
