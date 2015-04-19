@@ -15,7 +15,7 @@ block content
 					a.splashBtn.waves-effect.waves-teal.btn-large.btn-flat(href='/search') Find a Road Trip
 
 script("text/javascript").
-	$("createTrip").click(function (){ 
+	$("#createTrip").click(function (){ 
 		$.ajax({
 			url: "https://accounts.spotify.com/authorize?client_id=2ebbd2589f6f4d848d0d082124cc487d&response_type=code&redirect_uri=s4.jagels.io%3A3000%2Fcreate&scope=playlist-modify-public%20user-read-email%20user-read-private%20playlist-read-private",
 			type: "GET",
