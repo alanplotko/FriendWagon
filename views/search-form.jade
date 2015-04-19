@@ -42,7 +42,7 @@ block content
 				success: function(data) {
 					$('#searchRoadTrips').css('display', 'none');
 					$.each(data, function(index, value) {
-						var $card = $('<div class="card col s5" style="margin-right: 20px;"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
+						var $card = $('<div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src=""></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">Card Title <i class="mdi-navigation-close right"></i></span><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div>');
 						$card.find(".card-title").text(value.origin + " -> " + value.destination);
 						$card.find(".card-content p").text(value.seats + " seats are available for this road trip. Hosted by " + value.userid);
 						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + value.destination + "&zoom=15&size=400x300&markers=" + value.destination);
