@@ -28,9 +28,9 @@ block content
 			include footer.jade
 
 	script.
+		var tripData, userData;
 		$(document).ready(function() {
 			$('#sidebar').css('height', $(document).height() + 'px');
-			var tripData, userData;
 			var userid = location.pathname.split("/")[2];
 			$.ajax({
 				url: 'http://s4.jagels.io:3000/trips/' + userid,
