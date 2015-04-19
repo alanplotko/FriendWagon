@@ -20,6 +20,7 @@ router.get('/login', function(req, res) {
       redirect_uri: redirect_uri,
       state: state
     }));
+  	res.render("hi");
 });
 
 module.exports = router;
