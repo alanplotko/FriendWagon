@@ -31,6 +31,7 @@ block content
 		$(document).ready(function() {
 			$('#sidebar').css('height', $(document).height() + 'px');
 			var tripData, userData;
+			var userid = location.pathname.split("/")[2];
 			$.ajax({
 				url: 'http://s4.jagels.io:3000/trips/' + userid,
 				success: function(data) {
@@ -39,7 +40,7 @@ block content
 				type: 'GET'
 			});
 			$.ajax({
-				url: 'http://s4.jagels.io:3000/users/u/' + tripData.userid,
+				url: 'http://s4.jagels.io:3000/users/u/' + userid,
 				success: function(data) {
 					userData = data[0];
 				},
