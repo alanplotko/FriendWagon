@@ -44,6 +44,10 @@ a.splashBtn {
 	padding: 0 50px;
 }
 
+a.splashBtn:first-child {
+	margin-right: 50px;
+}
+
 a.splashBtn:hover {
 	background: rgba(0, 128, 128, 0.5);
 }
