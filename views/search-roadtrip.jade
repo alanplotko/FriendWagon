@@ -44,6 +44,7 @@ block content
 			include footer.jade
 
 	script.
+		$('#sidebar').css('height', $(document).height() + 'px');
 		var tripData, userData, emailHash;
 		$(document).ready(function() {
 			var userid = location.pathname.split("/")[2];
@@ -132,9 +133,7 @@ block content
 					  }
 					});
 					$('#map-wrapper').fadeIn(function() {
-						$('#preloaderArea').fadeOut(function() {
-							$('#sidebar').css('height', $(document).height() + 'px');
-						});
+						$('#preloaderArea').fadeOut();
 					});
 				});
 			});
