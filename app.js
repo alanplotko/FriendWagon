@@ -9,7 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var playlist = require('./routes/playlist');
 var message = require('./routes/message.js');
-var message = require('./routes/trips.js');
+var trips = require('./routes/trips');
 
 var app = express();
 
