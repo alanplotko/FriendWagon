@@ -12,8 +12,8 @@ var users = require('./routes/users');
 var playlist = require('./routes/playlist');
 var message = require('./routes/message.js');
 var trips = require('./routes/trips');
-var login = require('./login');
-var callback = require('./callback');
+var login = require('./routes/login');
+var callback = require('./routes/callback');
 
 var app = express();
 var redirect_uri = 'http://s4.jagels.io:3000/callback';

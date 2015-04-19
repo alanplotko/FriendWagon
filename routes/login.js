@@ -1,5 +1,6 @@
 var client_id = '66908937193-lino73g5jggfpnj6glqlrf9qtvjucmaa.apps.googleusercontent.com';
 var redirect_uri = 'http://s4.jagels.io:3000/callback';
+var querystring = require('querystring');
 
 //login for spotify
 app.get('/login', function(req, res) {

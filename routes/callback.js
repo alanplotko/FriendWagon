@@ -3,6 +3,9 @@ var client_id = '2ebbd2589f6f4d848d0d082124cc487d';
 var client_secret = '1a8d9dd91fc949dcbf4c5d509dcc5c94';
 var redirect_uri = 'http://s4.jagels.io:3000/callback';
 
+var querystring = require('querystring');
+var request = require('request');
+
 //spotify callback
 app.get('/callback', function(req, res) {
 
