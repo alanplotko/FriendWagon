@@ -5,106 +5,20 @@ html, body {
 body {
     background-color: #FBFBFB;
 }
-
-/*--------------
-	Navigation
-----------------*/
-
-nav {
-	background-color: #263238;
-	padding: 0 10px;
-}
-
-nav .brand-logo {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
-}
-
-nav .nav-wrapper i {
-	display: inline-block;
-	padding-right: 5px;
-	vertical-align: top;
-}
-
-nav li a.mapOption {
-	cursor: pointer;
-}
-
-nav li button.mobile, nav li button.clicked.mobile {
-	box-shadow: inset 1px 0 40px #eee!important;
-}
-
-
-nav li button.mobile a {
-	line-height: 36px;
-	color: #fff;
-}
-
-nav li button {
-	padding: 0!important;
-	text-transform: none!important;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
-nav li button.clicked {
-	box-shadow: inset 1px 0 40px #212121!important;
-}
-
-ul li.active {
-	background-color: #2BBBAD!important;
-}
-
-ul.side-nav li.home:hover {
-  background-color: inherit;
-}
-
-ul.side-nav li.home {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	color: #000;
-	font-size: 24px;
-}
-
-ul.side-nav a {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
-	font-size: 18px;
-}
-
-nav ul a {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 1.2rem;
-}
-
 /*--------------
 	Google Maps
 ----------------*/
 
-#map_canvas, div#map-wrapper {
-	height: 100%;
-	margin: 0;
-	overflow-y: scroll;
+#map-wrapper {
+	position: relative;
+	left: 323.5px;
+	height: calc(100vh - 64px);
+	padding: 0;
 }
 
-p.gmaps-name {
-	font-size: 18px;
-	padding: 5px;
-	margin: 0;
-}
-
-/*--------------
-	Form
-----------------*/
-
-label {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-}
-
-input {
-	font-family: 'Open Sans', sans-serif;
+#map_canvas {
+	height: 70%;
+	border-bottom: 2px solid #263238;
 }
 
 /*--------------
@@ -112,84 +26,85 @@ input {
 ----------------*/
 
 #sidebar {
-	height: calc(100vh - 64px);
+	position: fixed;
+	left: 0;
+	background-color: #263238;
+	height: 100vh;
+	color: #fff;
 	padding: 20px;
-	border-right: 2px solid #263238;
-}
-
-#sidebar .content {
-	height: 100%;
-}
-
-#sidebar p {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 24px;
-	padding: 10px 10px 0 10px;
+	font-size: 18px;
 }
 
-/*--------------
-	History
-----------------*/
-
-#history {
-	position: relative;
-	top: 30px;
-}
-
-#history h1 {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 300;
+#sidebar h1.logo {
+	font-family: "Kalam", sans-serif;
+	text-align: center;
 	font-size: 36px;
 	margin: 0;
 }
 
-.card .card-action a {
-	font-family: "Open Sans", sans-serif;
-	font-size: 16px;
-	color: #000;
-	cursor: pointer;
+#sidebar h1.logo i {
+	margin-top: -5px;
 }
 
-.card .card-action a:hover {
-	color: #2BBBAD;
-}
+/*--------------
+	People
+----------------*/
 
-.card-reveal {
-	font-family: "Open Sans", sans-serif;
-	font-size: 16px;
-}
-
-.card .card-title {
-	font-family: "Open Sans", sans-serif;
-	font-size: 24px;
+#people h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 36px;
+	text-align: center;
 	margin: 0;
 }
 
-.card .card-content .card-title {
-  line-height: 36px;
+#people {
+	padding: 10px;
+}
+
+#people hr {
+	margin: 0 0 20px 0;
+}
+
+#people .row {
+	margin: 0;
+}
+
+#people img.avatar {
+	width: 100px;
+	border-radius: 100px;
 }
 
 /*--------------
 	Scrollbar
 ----------------*/
 
-#map-wrapper::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 8px;
 	height: 4px;
 }
 
-#map-wrapper::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track-piece {
 	background-color: #263238;
 }
 
-#map-wrapper::-webkit-scrollbar-thumb:vertical {
+::-webkit-scrollbar-thumb:vertical {
 	height: 5px;
 	background-color: #adadad;
 	box-shadow: inset 1px 0 4px #999;
 }
 
-#map-wrapper::-webkit-scrollbar-thumb:horizontal {
+::-webkit-scrollbar-thumb:horizontal {
 	width: 5px;
 	background-color: #adadad;
 	box-shadow: inset 1px 0 4px #999;
+}
+
+/*--------------
+	Footer
+----------------*/
+
+footer {
+	margin-top: 0!important;
+	width: 100%;
 }

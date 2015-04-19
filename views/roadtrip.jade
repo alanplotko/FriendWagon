@@ -6,11 +6,30 @@ block header
 	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places,visualization')
 
 block content
-	include nav.jade
-
-	#map-wrapper.row
+	#content-wrapper.row
 		#sidebar.col.s3
-			.content Sidebar
-		#map_canvas.col.s9
+			.content
+				h1.logo(href='/') Friendwagon
+					i.mdi-maps-directions-car.left
+		#map-wrapper.col.s9
+			#map_canvas
+			#people
+				h1 Guests
+				hr
+				.row
+					.container
+						.col.s3
+							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+							p NAME 1
+						.col.s3
+							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+							p NAME 2
+						.col.s3
+							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+							p NAME 3
+						.col.s3
+							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+							p NAME 4
+			include footer.jade
 
 	script(src='/js/gmaps.js')
