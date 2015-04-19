@@ -12,11 +12,11 @@ block content
 				a(href='/', style='color: #fff;')
 					h1.logo Friendwagon
 				img#host.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
-				p Hosted by Fname Lname
+				p#hostName Hosted by Fname Lname
 					i.mdi-social-person.left
-				p Destination
+				p#destination Destination
 					i.mdi-maps-pin-drop.left
-				p Date
+				p#date Date
 					i.mdi-device-access-time.left
 		#map-wrapper.left.col.s9
 			#map_canvas
@@ -44,4 +44,30 @@ block content
 	script.
 		$(document).ready(function() {
 			$('#sidebar').css('height', $(document).height() + 'px');
+			var tripData, userData;
+			$.ajax({
+				url: 'http://s4.jagels.io:3000/trips',
+				success: function(data) {
+					$.each(data, function(index, value) {
+						if(value._id === req.params.id) {
+							tripData = value;
+							return;
+						}
+					});
+				},
+				type: 'GET'
+			});
+			$.ajax({
+				url: 'http://s4.jagels.io:3000/users/u/' + tripData.userid,
+				success: function(data) {
+					userData = data[0];
+				},
+				type: 'GET'
+			});
+			$('p#hostName').text(userData.name);
+			$('p#destination').text(tripData.destination);
+			var d = new Date(0);
+			d.setUTCSeconds(tripData.time);
+			$('p#date').text(d);
+			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
 		});
