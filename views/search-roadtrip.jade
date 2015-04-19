@@ -30,7 +30,6 @@ block content
 	script.
 		var tripData, userData;
 		$(document).ready(function() {
-			$('#sidebar').css('height', $(document).height() + 'px');
 			var userid = location.pathname.split("/")[2];
 			$.ajax({
 				async: false,
@@ -68,6 +67,7 @@ block content
 			d.setUTCSeconds(tripData.time);
 			$('p#date').text(d);
 			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
+			$('#sidebar').css('height', $(document).height() + 'px');
 
 			var map;
 			var global_markers = [];
@@ -80,14 +80,14 @@ block content
 			    'address': tripData.origin
 			}, function( results, status ) {
 			    if( status == google.maps.GeocoderStatus.OK ) {
-			        ogn = results[0].geometry.location;
+			        ogn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
 			    }
 			});
 			geocoder.geocode({
 			    'address': tripData.destination
 			}, function( results, status ) {
 			    if( status == google.maps.GeocoderStatus.OK ) {
-			        dsn = results[0].geometry.location;
+			        dsn = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
 			    }
 			});
 			var image = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png';
