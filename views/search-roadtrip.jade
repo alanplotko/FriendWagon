@@ -65,7 +65,7 @@ block content
 			});
 			$.each(tripData.riders, function(index, value) {
 				$avatar = $('<div class="col s3"><img class="avatar" src="" /><p></p></div>');
-				$avatar.find('p').text(varlue);
+				$avatar.find('p').text(value);
 				$.ajax({
 					async: false,
 					url: 'http://s4.jagels.io:3000/users/u/' + value,
