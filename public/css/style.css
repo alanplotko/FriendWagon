@@ -1,9 +1,9 @@
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
 body {
-    background-color: #FBFBFB;
+	background-color: #FBFBFB;
 }
 
 #content-wrapper {
@@ -41,19 +41,30 @@ body {
 	height: 100vh;
 	color: #fff;
 	padding: 20px;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
 }
 
 #sidebar h1.logo {
-	font-family: "Kalam", sans-serif;
+	font-family: "Lobster Two", sans-serif;
+	font-style: italic;
 	text-align: center;
 	font-size: 36px;
-	margin: 0;
+	margin: 10px;
 }
 
-#sidebar h1.logo i {
-	margin-top: -5px;
+#sidebar img.avatar {
+	width: 150px;
+	border-radius: 150px;
+	display: block;
+	margin: 20px auto 40px auto;
+	border: 1px solid #000;
+	padding: 3px;
+	background-color: #fff;
+}
+
+#sidebar p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	margin-bottom: 0;
 }
 
 /*--------------

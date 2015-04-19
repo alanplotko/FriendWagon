@@ -2,18 +2,27 @@ extends layout
 
 block header
 	link(rel='stylesheet', href='/css/style.css')
-	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Kalam:300|Open+Sans:300,400', type='text/css')
+	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lobster+Two:400italic|Open+Sans:300,400', type='text/css')
 	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places,visualization')
 
 block content
 	#content-wrapper.row
 		#sidebar.col.s3
 			.content
-				h1.logo(href='/') Friendwagon
-					i.mdi-maps-directions-car.left
+				a(href='/', style='color: #fff;')
+					h1.logo Friendwagon
+						i.mdi-maps-directions-car.left
+				img.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+				p Hosted by Fname Lname
+					i.mdi-social-person.left
+				p Destination
+					i.mdi-maps-pin-drop.left
+				p Date
+					i.mdi-device-access-time.left
 		.valign-wrapper(style='height:100vh;')
 			p#placeholder.center-align.valign Road trip planning in progress...
-		#map-wrapper.col.s9
+		p
+			imap-wrapp.left.col.s9
 			#map_canvas
 			#people
 				h1 Guests
