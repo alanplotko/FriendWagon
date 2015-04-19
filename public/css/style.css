@@ -47,15 +47,15 @@ body {
 	font-family: "Lobster Two", sans-serif;
 	font-style: italic;
 	text-align: center;
-	font-size: 36px;
-	margin: 10px;
+	font-size: 48px;
+	margin: 0;
 }
 
 #sidebar img.avatar {
 	width: 150px;
 	border-radius: 150px;
 	display: block;
-	margin: 20px auto 40px auto;
+	margin: 30px auto;
 	border: 1px solid #000;
 	padding: 3px;
 	background-color: #fff;
