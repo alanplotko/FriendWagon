@@ -68,6 +68,7 @@ block content
 				$avatar.find('p').text(value);
 				var emailHash;
 				$.ajax({
+					async: false,
 					url: 'http://s4.jagels.io:3000/users/u/' + value,
 					success: function(data) {
 						emailHash = data[0].emailhash;
@@ -131,8 +132,9 @@ block content
 					  }
 					});
 					$('#preloaderArea').fadeOut();
-					$('#map-wrapper').fadeIn();
-					$('#sidebar').css('height', $(window).height() + 'px');
+					$('#map-wrapper').fadeIn(function() {
+						$('#sidebar').css('height', $(document).height() + 'px');
+					});
 				});
 			});
 		});
