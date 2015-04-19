@@ -1,0 +1,41 @@
+extends layout
+
+block header
+	link(rel='stylesheet', href='/css/form.css')
+	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lobster+Two:400italic|Open+Sans:300,400', type='text/css')
+
+block content
+	#content-wrapper.row
+		div(style='height:calc(100vh - 50px); overflow-y: scroll;')
+			p#search.center-align Create Road Trip
+			hr.separator
+			.row.center-align
+				#searchResults.col.s12
+			div.container.col.s12
+				form#searchRoadTrips.col.s6.offset-s3(action='#', method='POST')
+					.row
+						.input-field.col.s12
+							input#destination.validate(type='text', required='required')
+							label(for='destination') Origin
+					.row
+						.input-field.col.s12
+							input#destination.validate(type='text', required='required')
+							label(for='destination') Destination
+					.row
+						.input-field.col.s12
+							input#time.datepicker(type='date')
+							label(for='time') Date
+					.row
+						.input-field.col.s12
+							p.range-field
+								input#seats.validate(type='range', min='1', max='7', value='3', style='border: none;')
+								label(for='seats',style='margin: 20px 0 0 -12px;') Number of Available Seats
+					button.btn.waves-effect.waves-light(type='submit', name='action', style='font-size: 18px; float: right;') Submit
+						i.mdi-content-send.right
+		
+		include footer.jade
+
+	script.
+		$(document).ready(function() {
+			$('.datepicker').pickadate({ selectMonths: true, selectYears: 1 });
+		});

@@ -32,14 +32,9 @@ block content
 			$('#sidebar').css('height', $(document).height() + 'px');
 			var tripData, userData;
 			$.ajax({
-				url: 'http://s4.jagels.io:3000/trips',
+				url: 'http://s4.jagels.io:3000/trips/' + userid,
 				success: function(data) {
-					$.each(data, function(index, value) {
-						if(value._id === req.params.id) {
-							tripData = value;
-							return;
-						}
-					});
+					tripData = value;
 				},
 				type: 'GET'
 			});
