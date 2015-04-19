@@ -21,3 +21,5 @@ router.get('/login', function(req, res) {
       state: state
     }));
 });
+
+module.exports = router;

@@ -71,3 +71,5 @@ router.get('/callback', function(req, res) {
     });
   }
 });
+
+module.exports = router;
