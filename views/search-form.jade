@@ -37,20 +37,18 @@ block content
 
 		$('#searchRoadTrips').submit(function(event) {
 			event.preventDefault();
-			var trips;
 			$.ajax({
 				url: 'http://s4.jagels.io:3000/trips',
 				success: function(data) {
-					trips = data;
+					$('#searchRoadTrips').css('display', 'none');
+					$.each(data, function(index, value) {
+						var $card = $('<div class="card col s6" style="margin-right: 10px;"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
+						$card.find(".card-title").text(value.origin + " -> " + value.destination);
+						$card.find(".card-content p").text(value.seats + " seats are available for this road trip. Hosted by " + value.userid);
+						$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + value.destination + "&zoom=15&size=400x300&markers=" + value.destination);
+						$('#searchResults').append($card);
+					});
 				},
 				type: 'GET'
 			});
-			$('#searchRoadTrips').css('display', 'none');
-			for(var i = 0; i < trips.length; i++) {
-				var $card = $('<div class="card col s6" style="margin-right: 10px;"><div class="card-image"><img src=""><span class="card-title"></span></div><div class="card-content"><p></p></div></div></div></div>');
-				$card.find(".card-title").text(trips[i].origin + " -> " + trips[i].destination);
-				$card.find(".card-content p").text(trips[i].seats + " seats are available for this road trip. Hosted by " + trips[i].userid);
-				$card.find(".card-image img").attr('src', "https://maps.googleapis.com/maps/api/staticmap?center=" + trips[i].destination + "&zoom=15&size=400x300&markers=" + trips[i].destination);
-				$('#searchResults').append($card);
-			};
 		});
