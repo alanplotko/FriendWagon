@@ -8,7 +8,7 @@ var spotifyApi = new SpotifyWebApi({
  	'accessToken' : 'myAccessToken',
  	'refreshToken' : 'myRefreshToken',
  	response_type : 'code',
-	'client_id' : keys.spotifyclientID,
+	clientID : keys.spotifyclientID,
 	clientSecret : keys.spotifyclientSecret,
 	redirectUri : 'http://localhost/playlist'
 });
@@ -33,10 +33,10 @@ var dothis = function()
 	spotifyApi.authorizationCodeGrant(authorizationCode)
 	  .then(function(data) {
 	    spotifyApi.setAccessToken(data.body['access_token']);
-	    //return spotifyApi.addTracksToPlaylist('thelinmichael', '5ieJqeLJjjI8iJWaxeBLuK', ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"],
-	    //  {
-	    //    position : 10
-	    //  })
+	    return spotifyApi.addTracksToPlaylist('gabe1118', '5ieJqeLJjjI8iJWaxeBLuK', ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"],
+	      {
+	        position : 10
+	      })
 	  }).then(function(data) {
 	    console.log('Added tracks to the playlist!');
 	  }).catch(function(err) {
