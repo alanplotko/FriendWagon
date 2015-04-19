@@ -10,15 +10,15 @@ block content
 			.col.s12
 				h1.logo= title
 				h2 Find Your Adventure
-				#btnWrapper.center-align
+				a.splashBtn.waves-effect.waves-teal.btn-large.btn-flat#createTrip(href='#') Create a Road Trip
+				a.splashBtn.waves-effect.waves-teal.btn-large.btn-flat(href='/search') Find a Road Trip
+				//#btnWrapper.center-align
 					#login
 						a.btn.btn-primary(href="/login") Login with Spotify
 					#loggedin
 						#user-profile
 						#oauth
 						button.btn.btn-default#obtain-new-token
-					a.splashBtn.waves-effect.waves-teal.btn-large.btn-flat#createTrip(href='#') Create a Road Trip
-					a.splashBtn.waves-effect.waves-teal.btn-large.btn-flat(href='/search') Find a Road Trip
 		script#user-profile-template(type="text/x-handlebars-template")
 			h1 Logged in as {{display_name}}
 			.media

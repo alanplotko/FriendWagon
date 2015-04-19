@@ -42,6 +42,7 @@ a.splashBtn {
 	border: 2px solid #fff;
 	color: #fff;
 	padding: 0 50px;
+	margin: 0 15px;
 }
 
 a.splashBtn:first-child {
