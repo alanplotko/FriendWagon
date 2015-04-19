@@ -6,7 +6,7 @@ var GooglePlusStrategy = require('passport-google-plus');
 var MongoClient = require('mongodb').MongoClient
     , assert = require('assert');
 
-var url = 'mongodb://localhost:27017/';
+var url = 'mongodb://localhost:27017/test';
 // Use connect method to connect to the Server
 
 passport.use(new GooglePlusStrategy({
@@ -14,7 +14,7 @@ passport.use(new GooglePlusStrategy({
     clientSecret: keys.clientSecret
 },
 function(tokens, profile, done) {
-    // Create or update user, call done() when complete... 
+    // Create or update user, call done() when complete...
     done(null, profile, tokens);
 }));
 
@@ -23,7 +23,7 @@ function signInCallback(authResult) {
         $.post('/auth/google/callback', { id_token: authResult.id_token})
         .done(function(data) {
             $('#signinButton').hide();
-        }); 
+        });
     } else if (authResult.error) {
         console.log('There was an error: ' + authResult.error);
     }
@@ -45,7 +45,7 @@ router.get('/u/:id', function(res, req, next) {
         var collection = db.collection('user');
         collection.find({'userid': res.params.id}).toArray(function(err, docs) {
             console.log(docs);
-            res.send();            
+            res.send();
         });
     });
 });
