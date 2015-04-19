@@ -1,0 +1,11 @@
+extends layout
+
+block header
+	link(rel='stylesheet', href='/css/form.css')
+	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lobster+Two:400italic|Open+Sans:300,400', type='text/css')
+
+block content
+	#content-wrapper.row
+		.valign-wrapper(style='height:calc(100vh - 50px);')
+			p#search.center-align.valign Search Road Trips
+		include footer.jade

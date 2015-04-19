@@ -11,23 +11,20 @@ block content
 			.content
 				a(href='/', style='color: #fff;')
 					h1.logo Friendwagon
-				img.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+				img#host.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
 				p Hosted by Fname Lname
 					i.mdi-social-person.left
 				p Destination
 					i.mdi-maps-pin-drop.left
 				p Date
 					i.mdi-device-access-time.left
-		.valign-wrapper(style='height:100vh;')
-			p#placeholder.center-align.valign Road trip planning in progress...
-		p
-			imap-wrapp.left.col.s9
+		#map-wrapper.left.col.s9
 			#map_canvas
 			#people
 				h1 Guests
 				hr
 				.row
-					.container
+					#guestWrapper.container
 						.col.s3
 							img.avatar(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
 							p NAME 1

@@ -1,0 +1,25 @@
+extends layout
+
+block header
+	link(rel='stylesheet', href='/css/style.css')
+	link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lobster+Two:400italic|Open+Sans:300,400', type='text/css')
+	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places,visualization')
+
+block content
+	#content-wrapper.row
+		#sidebar.col.s3
+			.content
+				a(href='/', style='color: #fff;')
+					h1.logo Friendwagon
+				img.avatar.center-align.z-depth-2(src='https://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar')
+				p Form
+		.valign-wrapper(style='height:calc(100vh - 50px);')
+			p#placeholder.center-align.valign Road trip planning in progress...
+		include footer.jade
+
+	script(src='/js/gmaps.js')
+
+	script.
+		$(document).ready(function() {
+			$('#sidebar').css('height', $(document).height() + 'px');
+		});

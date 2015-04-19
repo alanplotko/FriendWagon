@@ -24,7 +24,6 @@ body {
 #map-wrapper {
 	height: calc(100vh - 64px);
 	padding: 0;
-	display: none;
 }
 
 #map_canvas {
