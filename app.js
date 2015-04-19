@@ -29,6 +29,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/playlist', playlist);
 app.use('/message', message);
+app.use('/trips', trips);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
