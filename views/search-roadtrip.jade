@@ -44,7 +44,6 @@ block content
 			include footer.jade
 
 	script.
-		$('#sidebar').css('height', $(document).height() + 'px');
 		var tripData, userData, emailHash;
 		$(document).ready(function() {
 			var userid = location.pathname.split("/")[2];
@@ -66,7 +65,7 @@ block content
 			});
 			$.each(tripData.riders, function(index, value) {
 				$avatar = $('<div class="col s3"><img class="avatar" src="" /><p></p></div>');
-				$avatar.find('p').text(value);
+				$avatar.find('p').text(varlue);
 				$.ajax({
 					async: false,
 					url: 'http://s4.jagels.io:3000/users/u/' + value,
@@ -135,6 +134,7 @@ block content
 					$('#map-wrapper').fadeIn(function() {
 						$('#preloaderArea').fadeOut();
 					});
+					$('#sidebar').css('height', $(document).height() + 'px');
 				});
 			});
 		});
