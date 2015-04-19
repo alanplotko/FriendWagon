@@ -44,7 +44,7 @@ block content
 					var locations = [];
 					$.each(data, function(index, value) {
 						if(value.destination === $('input#destination').val() && value.seats >= parseInt($('input#seats').val())) {
-							location.append(value);
+							location.push(value);
 						}
 					});
 					$.each(locations, function(index, value) {
