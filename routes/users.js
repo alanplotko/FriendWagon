@@ -42,7 +42,7 @@ router.get('/u/:id', function(res, req, next) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         console.log("Connected correctly to server");
-        var collection = db.collection('user');
+        var collection = db.collection('users');
         collection.find({'userid': res.params.id}).toArray(function(err, docs) {
             console.log(docs);
             req.send();
