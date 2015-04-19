@@ -35,7 +35,7 @@ block content
 			$.ajax({
 				url: 'http://s4.jagels.io:3000/trips/' + userid,
 				success: function(data) {
-					tripData = data;
+					tripData = data[0];
 				},
 				type: 'GET'
 			});
