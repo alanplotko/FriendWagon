@@ -34,8 +34,8 @@ router.get('/', function(req, res, next) {
     //res.send('respond with a resource');
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
-        var collection = db.collection('users');
-        collection.find({'userid': res.params.id}).toArray(function(err, docs) {
+        var collection = db.collection('trips');
+        collection.find().toArray(function(err, docs) {
             req.send(docs);
         });
     });
