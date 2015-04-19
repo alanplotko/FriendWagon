@@ -33,3 +33,8 @@ block content
 			include footer.jade
 
 	script(src='/js/gmaps.js')
+
+	script.
+		$(document).ready(function() {
+			$('#sidebar').css('height', $(document).height() + 'px');
+		});

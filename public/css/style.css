@@ -5,13 +5,16 @@ html, body {
 body {
     background-color: #FBFBFB;
 }
+
+#content-wrapper {
+	margin: 0;
+}
+
 /*--------------
 	Google Maps
 ----------------*/
 
 #map-wrapper {
-	position: relative;
-	left: 323.5px;
 	height: calc(100vh - 64px);
 	padding: 0;
 }
@@ -26,8 +29,6 @@ body {
 ----------------*/
 
 #sidebar {
-	position: fixed;
-	left: 0;
 	background-color: #263238;
 	height: 100vh;
 	color: #fff;
@@ -64,6 +65,10 @@ body {
 
 #people hr {
 	margin: 0 0 20px 0;
+}
+
+#people div {
+	text-align: center;
 }
 
 #people .row {
