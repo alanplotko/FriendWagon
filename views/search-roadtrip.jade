@@ -86,6 +86,9 @@ block content
 			$('p#date span.data').text($('p#date span.data').text() + " "  + d);
 			$('img#host').attr('src', 'http://s.gravatar.com/avatar/' + userData.emailhash + '?s=150&d=wavatar');
 
+			$('#preloaderAreaSidebar').fadeOut();
+			$('#sidebar .content').fadeIn();
+
 			var map;
 			var global_markers = [];
 			var infowindow = new google.maps.InfoWindow({});
