@@ -68,7 +68,7 @@ block content
 			$('p#destination span.data').text(tripData.destination);
 			var d = new Date(0);
 			d.setUTCSeconds(tripData.time);
-			d.toLocaleString();
+			d = d.toLocaleDateString();
 			$('p#date span.data').text(d);
 			$('img#host').attr('src', 'https://2.gravatar.com/avatar/' + userData.emailhash + '?s=132&d=wavatar');
 
