@@ -63,6 +63,10 @@ input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([
 	display: inline-block;
 }
 
+.card .card-content p {
+	text-align: left;
+}
+
 /*--------------
 	Scrollbar
 ----------------*/
