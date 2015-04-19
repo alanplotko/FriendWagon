@@ -6,6 +6,9 @@ var redirect_uri = 'http://s4.jagels.io:3000/callback';
 var querystring = require('querystring');
 var request = require('request');
 
+var express = require('express');
+var router = express.Router();
+
 //spotify callback
 app.get('/callback', function(req, res) {
 

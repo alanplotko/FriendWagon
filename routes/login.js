@@ -1,9 +1,11 @@
 var client_id = '66908937193-lino73g5jggfpnj6glqlrf9qtvjucmaa.apps.googleusercontent.com';
 var redirect_uri = 'http://s4.jagels.io:3000/callback';
 var querystring = require('querystring');
+var express = require('express');
+var router = express.Router();
 
 //login for spotify
-app.get('/login', function(req, res) {
+router.get('/login', function(req, res) {
 
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
