@@ -84,9 +84,16 @@ block content
 			$('p#hostName span.data').text($('p#hostName span.data').text() + " " + userData.name);
 			$('p#origin span.data').text($('p#origin span.data').text() + " " + tripData.origin);
 			$('p#destination span.data').text($('p#destination span.data').text() + " " + tripData.destination);
-			var d = new Date(0);
-			d.setUTCSeconds(tripData.time);
-			d = d.toLocaleDateString();
+			if(!isNaN(tripData.time))
+			{
+				var d = new Date(0);
+				d.setUTCSeconds(tripData.time);
+				d = d.toLocaleDateString();
+			}
+			else {
+				var d = new Date(tripData.time);
+				d = d.toLocaleDateString();
+			}
 			$('p#date span.data').text($('p#date span.data').text() + " "  + d);
 			$('p#phone span.data').text($('p#phone span.data').text() + " (424) 275-2250");
 			$('img#host').attr('src', 'http://s.gravatar.com/avatar/' + userData.emailhash + '?s=150&d=wavatar');
