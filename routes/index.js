@@ -6,8 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Friendwagon' });
 });
 
-router.get('/roadtrip', function(req, res, next) {
-  res.render('roadtrip', { title: 'My Road Trip' });
+router.get('/create', function(req, res, next) {
+  res.render('create-roadtrip', { title: 'Create Road Trip' });
+});
+
+router.get('/search', function(req, res, next) {
+  res.render('search-form', { title: 'Search Road Trips' });
 });
 
 module.exports = router;

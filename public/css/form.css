@@ -1,0 +1,27 @@
+/*------------
+	Form
+--------------*/
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #263238;
+}
+
+#content-wrapper {
+	margin: 0;
+}
+
+footer {
+	margin-top: 0!important;
+	width: 100%;
+}
+
+#search {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 48px;
+	width: 100%;
+	color: #fff;
+}
