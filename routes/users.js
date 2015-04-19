@@ -48,15 +48,14 @@ router.get('/u/:id', function(res, req, next) {
     });
 });
 
-router.get('/search/:id', function(res, req, next) {
+router.get('/full', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         var collection = db.collection('users');
-        collection.find({'userid': /.*res.params.id.*/}).toArray(function(err, docs) {
+        collection.find({}).toArray(function(err, docs) {
             req.send(docs);
         });
     });
 });
 
 module.exports = router;
-

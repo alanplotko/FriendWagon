@@ -29,21 +29,21 @@ router.get('/', function(req, res, next) {
         });
     });
 });
-/*
+
 router.post('/add',function(req,res){
-    var doctoadd = {"origin" : req.body.startPlace, 
-                    "destination" : req.body.endPlace, 
-                    "userid" : req.body.loggeduser, 
-                    "time" : req.body.calendar, 
-                    "seats" : req.body.seats, 
-                    "riders" : []
-                }
+    var doctoadd = {"origin" : req.body.startPlace,
+        "destination" : req.body.endPlace,
+    "userid" : req.body.loggeduser,
+    "time" : req.body.calendar,
+    "seats" : req.body.seats,
+    "riders" : []
+    }
     var collection = db.collection('trips');
     collection.insert(doctoadd, function(err, records){
-            console.log("Record added as "+records[0]._id);
-        });
-    }
-*/
+        console.log("Record added as "+records[0]._id);
+    });
+});
+
 module.exports = router;
 
 
