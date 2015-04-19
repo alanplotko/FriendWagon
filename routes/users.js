@@ -6,7 +6,7 @@ var GooglePlusStrategy = require('passport-google-plus');
 var MongoClient = require('mongodb').MongoClient
     , assert = require('assert');
 
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://localhost:27017/roadtrip';
 // Use connect method to connect to the Server
 
 passport.use(new GooglePlusStrategy({
@@ -45,7 +45,7 @@ router.get('/u/:id', function(res, req, next) {
         var collection = db.collection('user');
         collection.find({'userid': res.params.id}).toArray(function(err, docs) {
             console.log(docs);
-            res.send();
+            req.send();
         });
     });
 });
