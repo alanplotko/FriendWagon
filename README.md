@@ -1,6 +1,6 @@
 # FriendWagon
 
-FriendWagon is a web application that allows users to host or join road trips. FriendWagon was built at BrickHack, a hackathon hosted at RIT (Rochester Institute of Technology). You can view the ChallengePost project [here](http://challengepost.com/software/friendwagon). FriendWagon runs on Node.js and uses the Google Maps API to plot the route and search for trips that may intersect the user's desired destination.
+FriendWagon is a web application that allows users to host road trips or join others on road trips. FriendWagon was built at BrickHack, a hackathon hosted at RIT (Rochester Institute of Technology). You can view the ChallengePost project [here](http://challengepost.com/software/friendwagon). FriendWagon runs on Node.js and uses the Google Maps API to plot the route and search for trips that may intersect the user's desired destination.
 
 ## Awards
 
