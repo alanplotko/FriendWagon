@@ -27,6 +27,6 @@ Users can either create a road trip or search for trips departing soon. We take 
 ## Project Authors
 
 - William Jagels ([@wijagels](https://github.com/wijagels))
-- Gabriel Ochoa ([@gochoa](https://github.com/gabeochoa))
+- Gabriel Ochoa ([@gabeochoa](https://github.com/gabeochoa))
 - Alan Plotko ([@alanplotko](https://github.com/alanplotko))
 - Simeon Videnov ([@simeon](https://github.com/simeon))
